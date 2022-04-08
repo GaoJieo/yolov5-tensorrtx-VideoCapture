@@ -6,7 +6,6 @@
 #include "common.hpp"
 #include "utils.h"
 #include "calibrator.h"
-#include<ctime>
 
 #define USE_FP16  // set USE_INT8 or USE_FP16 or USE_FP32
 #define DEVICE 0  // GPU id
@@ -262,7 +261,6 @@ void doInference(IExecutionContext& context, cudaStream_t& stream, void **buffer
 }
 
 bool parse_args(std::string argv[], std::string& wts, std::string& engine, bool& is_p6, float& gd, float& gw) {
-    //if (argc < 4) return false;
     if (std::string(argv[1]) == "-s") {
         wts = std::string(argv[2]);
         engine = std::string(argv[3]);
