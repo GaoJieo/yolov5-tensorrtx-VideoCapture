@@ -71,7 +71,8 @@ public:
         {
             // prepend timestamp
             std::time_t timestamp = std::time(nullptr);
-            tm tm_local ;
+            //tm* tm_local = std::localtime(&timestamp);
+            tm tm_local;
             localtime_s(&tm_local,&timestamp);
             std::cout << "[";
             std::cout << std::setw(2) << std::setfill('0') << 1 + tm_local.tm_mon << "/";
@@ -111,7 +112,6 @@ public:
     LogStreamConsumerBase(std::ostream& stream, const std::string& prefix, bool shouldLog)
         : mBuffer(stream, prefix, shouldLog)
     {
-
     }
 
 protected:
